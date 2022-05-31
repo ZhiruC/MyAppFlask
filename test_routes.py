@@ -2,10 +2,12 @@ from flask import Flask
 import json
 from flask_wtf.csrf import CSRFProtect
 from handlers.routes import configure_routes
-
+import os
 
 def test_base_route():
     app = Flask(__name__)
+    SECRET_KEY = os.urandom(32)
+    app.config['SECRET_KEY'] = SECRET_KEY
     csrf = CSRFProtect()
     csrf.init_app(app)
     configure_routes(app)
@@ -19,6 +21,8 @@ def test_base_route():
 
 def test_post_route__success():
     app = Flask(__name__)
+    SECRET_KEY = os.urandom(32)     
+    app.config['SECRET_KEY'] = SECRET_KEY
     csrf = CSRFProtect()
     csrf.init_app(app)
     configure_routes(app)
@@ -43,6 +47,8 @@ def test_post_route__success():
 
 def test_post_route__failure__unauthorized():
     app = Flask(__name__)
+    SECRET_KEY = os.urandom(32)
+    app.config['SECRET_KEY'] = SECRET_KEY
     csrf = CSRFProtect()
     csrf.init_app(app)
     configure_routes(app)
