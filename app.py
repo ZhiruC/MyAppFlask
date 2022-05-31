@@ -2,6 +2,7 @@ from flask import Flask
 from handlers.routes import configure_routes
 from flask_wtf.csrf import CSRFProtect
 app = Flask(__name__)
+csrf = CSRFProtect()
 csrf.init_app(app)
 configure_routes(app)
 
