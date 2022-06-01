@@ -4,9 +4,7 @@
   become:yes
   tasks:
   - name: vider workplace
-    file:
-      path: /home/vagrant/AppFlask
-      state: absent
+    shell: "rm /home/vagrant/AppFlask/*"
   - name: clone git
     git:
       repo: https://github.com/NaimAssoumani/Projets_Devops_flask
@@ -14,9 +12,6 @@
       version: preprod
       clone: yes
       update: no
- 
+
   - name: docker compose
     shell: "cd AppFlask; docker compose down; docker compose up -d"
- 
-
-
