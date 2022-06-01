@@ -1,18 +1,36 @@
 
 - name : Playbook_test
-  hosts: node1
+  hosts: node2
   remote_user: vagrant
   tasks:
   - name: vider repo
     shell: " rm /home/vagrant/AppFlask -rf"
     become: 'yes'
-  - name: installation python
+  - name: installation python & outils
     apt: 
      name:
         - python3-pip
         - python3
+        - curl
+        - ca-certificates
+        - software-properties-common
      state: latest
     become: 'yes'
+  - name: Add Docker GPG apt Key
+    apt_key:
+      url: https://download.docker.com/linux/ubuntu/gpg
+      state: present
+
+  - name: Add Docker Repository
+    apt_repository:
+      repo: deb https://download.docker.com/linux/ubuntu focal stable
+      state: present
+
+  - name: Update apt and install docker-ce
+    apt:
+      name: docker-ce
+      state: latest
+      update_cache: true
   - name: clone git
     git:
       repo: https://github.com/NaimAssoumani/Projets_Devops_flask
