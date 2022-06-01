@@ -2,7 +2,6 @@
 - name : Playbook_test
   hosts: node1
   remote_user: vagrant
-  become:'yes'
   tasks:
   - name: clone git
     git:
