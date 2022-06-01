@@ -1,0 +1,9 @@
+- name : Playbook_test
+  hosts: node1
+  remote_user: vagrant
+  tasks:
+  - name: je debug
+    debug:
+      msg: "Hello"
+
+
