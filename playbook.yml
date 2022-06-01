@@ -25,7 +25,7 @@
     shell: "sudo mkdir -p /etc/apt/keyrings; curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg"
     become: 'yes'
   - name: Add Docker Repository
-    shell: 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian bullseye stable" |sudo tee /etc/apt/sources.list.d/docker.list'
+    shell: 'sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" '
     become: 'yes'
   - name: Update apt and install docker-ce
     apt:
