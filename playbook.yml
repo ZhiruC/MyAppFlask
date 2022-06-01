@@ -4,8 +4,6 @@
   remote_user: vagrant
   become:'yes'
   tasks:
-  - name: vider workplace
-    shell: "rm /home/vagrant/AppFlask/* -f"
   - name: clone git
     git:
       repo: https://github.com/NaimAssoumani/Projets_Devops_flask
