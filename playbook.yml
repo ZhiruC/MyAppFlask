@@ -11,7 +11,7 @@
      name:
         - python3-pip
         - python3
-     state=latest
+     state: latest
     become: 'yes'
   - name: clone git
     git:
