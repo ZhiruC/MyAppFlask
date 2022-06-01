@@ -22,7 +22,9 @@
      state: latest
     become: 'yes'
   - name: Add Docker GPG apt Key
-    shell: "curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg"
+    apt_key:
+       url: https://download.docker.com/linux/debian/gpg
+       state: present
     become: 'yes'
   - name: Add Docker Repository
     shell: 'sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" '
