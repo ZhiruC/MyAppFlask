@@ -7,7 +7,12 @@
     shell: " rm /home/vagrant/AppFlask -rf"
     become: 'yes'
   - name: installation python
-    apt: name= python3-pip python3 state=latest
+    apt: 
+     name:
+        - python3-pip
+        - python3
+     state=latest
+    become: 'yes'
   - name: clone git
     git:
       repo: https://github.com/NaimAssoumani/Projets_Devops_flask
