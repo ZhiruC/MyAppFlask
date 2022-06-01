@@ -17,6 +17,7 @@
         - lsb-release
         - gnupg
         - libseccomp2
+        - build-essential
      state: latest
     become: 'yes'
   - name: Add Docker GPG apt Key
