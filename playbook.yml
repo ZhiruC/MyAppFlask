@@ -20,17 +20,18 @@
     apt_key:
       url: https://download.docker.com/linux/ubuntu/gpg
       state: present
-
+    become: 'yes'
   - name: Add Docker Repository
     apt_repository:
       repo: deb https://download.docker.com/linux/ubuntu focal stable
       state: present
-
+    become: 'yes'
   - name: Update apt and install docker-ce
     apt:
       name: docker-ce
       state: latest
       update_cache: true
+    become: 'yes'
   - name: clone git
     git:
       repo: https://github.com/NaimAssoumani/Projets_Devops_flask
