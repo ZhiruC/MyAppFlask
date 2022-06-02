@@ -15,7 +15,13 @@
     when: foo.stat.exists
     become: 'yes' 
   - name: suppresion repo Appflask
-    shell: " rm /home/vagrant/Appflask -rf"
+    file:
+      state: "{{ item }}"
+      path: "/home/vagrant/AppFlask/"
+    with items:
+      - absent
+      - directory
+    when: foo.stats.exists    
   - name: installation python & outils
     apt: 
      name:
