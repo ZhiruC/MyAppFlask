@@ -1,6 +1,6 @@
 
 - name : Playbook_test
-  hosts: node02
+  hosts: node04
   remote_user: vagrant
   tasks:
   - name: vider repo
