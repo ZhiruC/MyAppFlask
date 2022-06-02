@@ -13,9 +13,8 @@
     shell: "cd AppFlask; sudo docker compose down; sudo docker system prune --all -f && sudo docker kill $(sudo docker ps -q) && sudo docker rm $(sudo docker ps -a -q) && sudo docker rmi $(sudo docker imag$
     when: foo.stat.exists
     become: 'yes' 
-  - name: vider repo flask
-    shell: "rm /home/vagrant/AppFlask -rf"
-    become: 'yes'
+  - name: suppresion repo Appflask
+    shell: "rm /home/vagrant/Appflask -rf"
   - name: installation python & outils
     apt: 
      name:
