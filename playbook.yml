@@ -3,9 +3,6 @@
   hosts: node03
   remote_user: vagrant
   tasks:
-  - name: stop nginx
-    shell: "sudo service nginx stop"
-    become: 'yes'
   - name: stat AppFlask
     stat: 
       path: /home/vagrant/AppFlask
