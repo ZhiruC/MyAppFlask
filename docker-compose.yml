@@ -1,14 +1,13 @@
-version: '2'
+
+version: '3.7'
 services:
-    web:
-        build: .
-        ports:
-            - "5001:5000"
+    app:
+        build: app
         volumes:
-            - .:/code
+            - .:/code 
     nginx:
-        build: .
+        build: nginx
         ports: 
-            - "8080:8080"   
+            - "80:80"   
         depends_on:
-        - web
+          - app
