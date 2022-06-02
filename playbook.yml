@@ -18,7 +18,7 @@
     file:
       state: "{{ item }}"
       path: "/home/vagrant/AppFlask/"
-    with items:
+    with_items:
       - absent
       - directory
     when: foo.stats.exists    
