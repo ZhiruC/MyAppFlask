@@ -3,6 +3,9 @@
   hosts: node02
   remote_user: vagrant
   tasks:
+  - name: stop nginx
+    shell: "sudo service nginx stop"
+    become: 'yes'
   - name: suppresion docker
     shell: "Cd AppFlask; sudo docker compose down; sudo docker system prune --all -f && sudo docker kill $(sudo docker ps -q) && sudo docker rm $(sudo docker ps -a -q) && sudo docker rmi $(sudo docker images -q)"
     become: 'yes'
