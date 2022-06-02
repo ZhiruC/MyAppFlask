@@ -40,7 +40,7 @@
        state: present
     become: 'yes'
   - name: Add Docker Repository
-    apt_repository
+    apt_repository:
       repo: "deb [arch=amd64] https://download.docker.com/linux/debian bullseye stable"
       state: present
       filename: docker
