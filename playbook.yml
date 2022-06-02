@@ -15,7 +15,7 @@
     when: foo.stat.exists
     become: 'yes' 
   - name: suppresion repo Appflask
-    shell: "rm /home/vagrant/Appflask -rf"
+    shell: " rm /home/vagrant/Appflask -rf"
   - name: installation python & outils
     apt: 
      name:
