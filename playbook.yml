@@ -16,11 +16,8 @@
     become: 'yes' 
   - name: suppresion repo Appflask
     file:
-      state: "{{ item }}"
+      state: absent
       path: "/home/vagrant/AppFlask/"
-    with_items:
-      - absent
-      - directory
     when: foo.stats.exists    
   - name: installation python & outils
     apt: 
