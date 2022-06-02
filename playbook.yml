@@ -18,7 +18,7 @@
     file:
       state: absent
       path: /home/vagrant/AppFlask/
-    when: foo.stats.exists    
+    when: foo.stat.exists    
   - name: installation python & outils
     apt: 
      name:
