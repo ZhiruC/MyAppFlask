@@ -1,6 +1,6 @@
 
 - name : Playbook_test
-  hosts: node03
+  hosts: node01
   remote_user: vagrant
   tasks:
   - name: stat AppFlask
