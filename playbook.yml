@@ -40,7 +40,7 @@
        state: present
     become: 'yes'
   - name: Add Docker Repository
-    shell: 'sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"'
+    shell: "sudo add-apt-repository 'deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable'"
     become: 'yes'
   - name: Update apt and install docker-ce
     apt:
