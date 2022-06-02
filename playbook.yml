@@ -40,7 +40,10 @@
        state: present
     become: 'yes'
   - name: Add Docker Repository
-    command: 'sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian bullseye stable"'
+    apt_repository
+      repo: "deb [arch=amd64] https://download.docker.com/linux/debian bullseye stable"
+      state: present
+      filename: docker
     become: 'yes'
   - name: Update apt and install docker-ce
     apt:
