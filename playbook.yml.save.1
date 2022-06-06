@@ -1,0 +1,18 @@
+- name : Playbook_test
+  hosts: node1
+  remote_user: vagrant
+  tasks:
+  
+- name: clone git
+    git:
+      repo: https://github.com/NaimAssoumani/Projets_Devops_flask
+      dest: /home/vagrant/AppFlask
+      version: preprod
+      clone: yes
+      update: no
+ 
+  - name: docker compose
+    shell: "cd AppFlask; docker compose down; docker compose up -d"
+ 
+
+
